@@ -36,9 +36,7 @@ public class Level_01_Apply_BasePage_1_Login {
     @Test
     public void f(){
     }
-    @BeforeClass
-    public void beforeClass(){
-    }
+
     @AfterClass // Custom
     public void afterClass(){
     }

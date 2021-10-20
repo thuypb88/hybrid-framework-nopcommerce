@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
@@ -130,4 +131,24 @@ public class BasePage {
     public void getElementText(WebDriver driver, String xpathLocator){
         getWebElement(driver, xpathLocator).getText();
     }
+    public void selectItemDefaultDropdown(WebDriver driver, String xpathLocator, String textItem){
+        Select select = new Select(getWebElement(driver, xpathLocator));
+        select.selectByValue(textItem);
+    }
+    public String getSelectItemDefaultDropdown(WebDriver driver, String xpathLocator){
+        Select select = new Select(getWebElement(driver, xpathLocator));
+        return select.getFirstSelectedOption().getText();
+    }
+    public boolean isDropdownMultiple(WebDriver driver, String xpathLocator){
+        Select select = new Select(getWebElement(driver, xpathLocator));
+        return select.isMultiple();
+    }
+    public void sleepInSecond(long time){
+        try{
+            Thread.sleep(time * 1000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
 }
