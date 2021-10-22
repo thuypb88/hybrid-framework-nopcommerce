@@ -9,11 +9,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Level_03_Page_Object{
-    WebDriver driver;
-    String emailAddress;
-    String projectPath = System.getProperty("user.dir");
+import java.util.Random;
 
+public class Level_03_Page_Object{
     @BeforeClass
     public void beforeClass(){
     }
@@ -125,8 +123,13 @@ public class Level_03_Page_Object{
     }
 
     public int generateFakeNumber(){
-            return 1;
+        Random rand = new Random();
+        return rand.nextInt(9999);
     }
-    HomePageObject homePage;
-    RegisterPageObject registerPage;
+
+    private WebDriver driver;
+    private String emailAddress;
+    private HomePageObject homePage;
+    private RegisterPageObject registerPage;
+    private String projectPath = System.getProperty("user.dir");
 }
